@@ -1,6 +1,6 @@
 {
     "name": "unionworx/laravel-serializes-models-with-cache",
-    "description": "A drop in replacement for Laravel's SerializesModels trait that uses your applications cache when unserializing your models. This can be useful when you have a lot of models being unserialized in a single request and you want to reduce the number of database queries being made. This package is compatible with Laravel 8.x and 9.x.",
+    "description": "This package provides a drop-in replacement for Laravel's SerializesModels trait that leverages your application's cache when unserializing models.",
     "keywords": [
         "unionworx",
         "laravel",
