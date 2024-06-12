@@ -1,0 +1,68 @@
+{
+    "name": "unionworx/laravel-serializes-models-with-cache",
+    "description": "A drop in replacement for Laravel's SerializesModels trait that uses your applications cache when unserializing your models. This can be useful when you have a lot of models being unserialized in a single request and you want to reduce the number of database queries being made. This package is compatible with Laravel 8.x and 9.x.",
+    "keywords": [
+        "unionworx",
+        "laravel",
+        "serializes",
+        "models",
+        "cache",
+        "laravel-serializes-models-with-cache"
+    ],
+    "homepage": "https://github.com/Union-Worx/laravel-serializes-models-with-cache",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Christopher Carranza",
+            "email": "chris@unionworx.cloud",
+            "homepage": "https://www.unionworx.cloud",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^10.0|^11.0",
+        "illuminate/queue": "^10.0|^11.0",
+        "illuminate/database": "^10.0|^11.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^v8.23.2",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "UnionWorx\\LaravelSerializesModelsWithCache\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UnionWorx\\LaravelSerializesModelsWithCache\\Tests\\": "tests",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "lint": [
+            "@php vendor/bin/phpstan analyse"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
